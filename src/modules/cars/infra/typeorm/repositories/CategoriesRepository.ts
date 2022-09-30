@@ -1,7 +1,7 @@
-import { Category } from "../../entities/Category";
-import { ICategoriesRepository, ICraeteCategoryDTO } from "../ICategoriesRepository";
+import { Category } from "../entities/Category";
+import { ICategoriesRepository, ICreateCategoryDTO } from "../../../repositories/ICategoriesRepository";
 import {Repository} from 'typeorm';
-import { dataSource } from "../../../../database";
+import { dataSource } from "../../../../../shared/infra/typeorm";
 class CategoriesRepository
   implements ICategoriesRepository {
 
@@ -11,7 +11,7 @@ class CategoriesRepository
     this.repository = dataSource.getRepository(Category);
   }
 
-  async create({ name, description }: ICraeteCategoryDTO): Promise<void> {
+  async create({ name, description }: ICreateCategoryDTO): Promise<void> {
     const category = this.repository.create({
       name,
       description
