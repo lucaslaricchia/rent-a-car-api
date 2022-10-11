@@ -7,7 +7,7 @@ export const dataSource = new DataSource({
   username: 'docker',
   password: '1234',
   database: 'rentx',
-  migrations: ["src/database/migrations/*.ts"],
+  migrations: ["src/shared/infra/typeorm/migrations/*.ts"],
   entities: ["src/modules/**/entities/*.ts"],
 });
 
